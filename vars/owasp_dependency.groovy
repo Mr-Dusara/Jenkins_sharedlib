@@ -1,4 +1,6 @@
 def call(){
-  dependencyCheck additionalArguments: '--scan ./', odcInstallation: 'OWASP'
+  dependencyCheck additionalArguments: '''--scan ./
+                                          --nvdApiDelay 6000 
+                                          --nvdMaxRetryCount 15''', odcInstallation: 'OWASP'
   dependencyCheckPublisher pattern: '**/dependency-check-report.xml'
 }
